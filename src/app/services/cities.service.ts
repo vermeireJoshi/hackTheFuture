@@ -12,7 +12,7 @@ export class CitiesService {
   constructor(private http: Http) { }
 
   get cities(): Observable<City[]> {
-    return this.http.get(this._url + "/cities").map(response =>
+    return this.http.get(this._url).map(response =>
       response.json().map(item => new City(item.id, item.name, item.population, item.area, item.country)
       )
     )

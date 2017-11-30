@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CitiesService } from './services/cities.service';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ConvoysService } from './services/convoys.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { NavigationComponent } from './navigation/navigation.component';
   ],
   providers: [
     CitiesService,
-
+    ConvoysService,
   ],
   bootstrap: [AppComponent]
 })
