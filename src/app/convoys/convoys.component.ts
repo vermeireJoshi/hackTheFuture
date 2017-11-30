@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Convoy } from '../models/Convoy';
 import { ApiService } from '../services/api.service';
-import { groupBy as higherOrder, GroupedObservable } from 'rxjs/operators/groupBy';
+import { groupBy as higherOrder, GroupedObservable, groupBy } from 'rxjs/operators/groupBy';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+
+
 
 @Component({
   selector: 'app-convoys',
@@ -12,33 +14,25 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ConvoysComponent implements OnInit {
 
-  private convoys: any;
+  private convoys: any[];
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.apiService.convoys.subscribe(item => {
-      //console.log(item);
-      this.convoys = this.groupBy(item, "destinationCity");
+      var map = new Map();
+      item.forEach(e => {
+        if (!map.get(e.destinationCity)){
+          map.set(e.destinationCity,new Array());
+        }
+        map.get(e.destinationCity).push(e);
+      });
+
+      this.convoys = Array.from(map,   ([key, val]) => {
+        return {type: key, name: val};
+      });
+
       console.log(this.convoys);
     });
-  }
-
-  groupBy(array: any[], property: string) {
-    var groupedList = {
-      cities: []
-    };
-    array.forEach(element => {
-      console.log(element[property]);
-      if(groupedList.cities.includes(element[property])) {
-        //groupedList[element[property]].push(element);
-      } else {
-        var group = []
-        //groupedList.cities.push({});
-        //groupedList.push(element[property]);
-        //groupedList[element[property]].push(element);
-      }
-    });
-    return groupedList;
   }
 }

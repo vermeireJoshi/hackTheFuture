@@ -15,5 +15,9 @@ export class City {
         this.area = area;
         this.country = country;
     }
+
+    calcDensitie(): number {
+        return +this.population / this.area;
+    }
 }
   

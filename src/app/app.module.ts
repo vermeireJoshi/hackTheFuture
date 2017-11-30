@@ -9,6 +9,8 @@ import { ApiService } from './services/api.service';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NotFoundComponent } from'./not-found/not-found.component';
 import { ConvoysComponent } from './convoys/convoys.component';
+import { CitiesComponent } from './cities/cities.component';
+import { CityViewComponent } from './city-view/city-view.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ConvoysComponent } from './convoys/convoys.component';
     DashboardComponent,
     NavigationComponent,
     NotFoundComponent,
-    ConvoysComponent
+    ConvoysComponent,
+    CitiesComponent,
+    CityViewComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +28,7 @@ import { ConvoysComponent } from './convoys/convoys.component';
     RouterModule.forRoot([
       {path: "convoys", component: ConvoysComponent},
       {path: "dashboard", component:DashboardComponent},
+      {path: "cities", component:CitiesComponent},
       {path: "**", component:NotFoundComponent}
     ])
   ],

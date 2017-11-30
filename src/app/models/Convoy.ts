@@ -14,5 +14,9 @@ export class Convoy {
         this.speedInKmPerHour = speed;
         this.vehicles = vehicles;
     }
+
+    caclArriving(): number {
+        return this.distanceFromCityBorder / this.speedInKmPerHour;
+    }
 }
   
