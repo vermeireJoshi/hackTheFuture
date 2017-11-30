@@ -8,19 +8,24 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ApiService } from './services/api.service';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NotFoundComponent } from'./not-found/not-found.component';
+import { CitiesComponent } from './cities/cities.component';
+import { CityViewComponent } from './city-view/city-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     NavigationComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CitiesComponent,
+    CityViewComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot([
       {path: "dashboard", component:DashboardComponent},
+      {path: "cities", component:CitiesComponent},
       {path: "**", component:NotFoundComponent}
     ])
   ],
