@@ -12,6 +12,7 @@ import { Convoy } from '../models/Convoy';
 export class DashboardComponent implements OnInit {
 
   private cities: City[];
+  private _savedCities: City[];
   private convoys: Convoy[];
   private cityConvoys: City[];
 
@@ -29,5 +30,12 @@ export class DashboardComponent implements OnInit {
     this.apiService.citiesConvoys.subscribe(item =>
       this.cityConvoys = item
     );
+
+    this._savedCities = (localStorage.getItem("cities")!= null)? JSON.parse(localStorage.getItem("cities")): new Array<City>();
+    console.log(this._savedCities);
+  }
+
+  get savedCities(): City[]{
+    return this._savedCities;
   }
 }

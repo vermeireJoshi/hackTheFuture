@@ -12,6 +12,7 @@ import { Nomad } from '../models/Nomad';
 export class ApiService {
 
   private _url = 'http://cunning-convoys.azurewebsites.net/api';
+  private apiKey = 'AIzaSyAsJ9cLXK6MESDxu4SJRbWr446C--x34MQ';
   
     constructor(private http: Http) { }
   
@@ -31,7 +32,7 @@ export class ApiService {
        )
       ))
     }
-
+    
     get citiesConvoys(): Observable<City[]> {
       var cities;
       var convoys;
@@ -45,5 +46,10 @@ export class ApiService {
         });
       });
       return undefined;
+    }
+
+    getGeolocation(city: string): any {
+      return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + city + ",+CA&key=AIzaSyAsJ9cLXK6MESDxu4SJRbWr446C--x34MQ")
+        .map(response => response.json().results[0].geometry.location);
     }
 }

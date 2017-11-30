@@ -1,0 +1,8 @@
+<h1>The map.</h1>
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  
+<agm-marker [latitude]="53" [longitude]="52"></agm-marker>
+      <agm-marker *ngFor="let loc of _locs" [latitude]="loc.lat" [longitude]="loc.lng"></agm-marker>
+
+
