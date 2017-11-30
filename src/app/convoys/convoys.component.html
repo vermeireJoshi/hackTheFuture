@@ -1,0 +1,12 @@
+<div class="" *ngFor="let c of convoys">
+  <h1>{{c.type}}</h1>
+  <table *ngFor="let convoy of c.name">
+    <tr>
+      <th>Convoy: {{convoy.id}}</th>
+      <td>Arrving in: {{convoy.caclArriving()}} hours</td>
+    </tr>
+    <tr *ngFor="let vehicle of convoy.vehicles">
+      <td>Licenseplate: {{vehicle.licensePlate}}</td>
+    </tr>
+  </table>
+</div>

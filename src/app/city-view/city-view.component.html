@@ -2,7 +2,8 @@
 
  <div class="card">
         <h4>{{city.name}}</h4>
-        {{city.country}}
+        {{city.country}}<br>
+        Densitie: {{city.calcDensitie()}}
         <button class="btn btn-primary" (click)="follow()">Follow this city!</button>
 </div>
 
