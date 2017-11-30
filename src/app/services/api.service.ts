@@ -32,4 +32,18 @@ export class ApiService {
       ))
     }
 
+    get citiesConvoys(): Observable<City[]> {
+      var cities;
+      var convoys;
+      this.cities.subscribe(item => {
+        cities = item;
+        this.convoys.subscribe(item => {
+          convoys = item;
+          return cities.array.forEach(element => {
+            element.convoys = convoys.filter(c => c.destinationCity == element.name);
+          });
+        });
+      });
+      return undefined;
+    }
 }

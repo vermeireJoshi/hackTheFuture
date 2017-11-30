@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
 
   private cities: City[];
   private convoys: Convoy[];
+  private cityConvoys: City[];
 
   constructor(private apiService: ApiService) { }
 
@@ -23,6 +24,10 @@ export class DashboardComponent implements OnInit {
 
     this.apiService.convoys.subscribe(item =>
       this.convoys = item
+    );
+
+    this.apiService.citiesConvoys.subscribe(item =>
+      this.cityConvoys = item
     );
   }
 }
