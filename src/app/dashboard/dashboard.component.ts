@@ -29,4 +29,8 @@ export class DashboardComponent implements OnInit {
     this._savedCities = (localStorage.getItem("cities")!= null)? JSON.parse(localStorage.getItem("cities")): new Array<City>();
     console.log(this._savedCities);
   }
+
+  get savedCities(): City[]{
+    return this._savedCities;
+  }
 }
