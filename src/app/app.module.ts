@@ -5,10 +5,9 @@ import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CitiesService } from './services/cities.service';
+import { ApiService } from './services/api.service';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NotFoundComponent } from'./not-found/not-found.component';
-import { ConvoysService } from './services/convoys.service';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { ConvoysService } from './services/convoys.service';
     ])
   ],
   providers: [
-    CitiesService,
-    ConvoysService,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

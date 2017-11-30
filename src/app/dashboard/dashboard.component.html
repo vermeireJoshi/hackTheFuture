@@ -1,3 +1,22 @@
-<p>
-  dashboard works!
-</p>
+<div *ngFor="let city of cities">
+  {{city.id}} 
+  {{city.name}} 
+  {{city.population}}
+  {{city.area}}
+  {{city.country}}
+</div>
+
+<div *ngFor="let convoy of convoys">
+  {{convoy.desinationCity}}
+  {{convoy.distanceFromCityBorder}}
+  {{convoy.speedInKmPerHour}}
+  <div *ngFor="let vehicle of convoy.vehicles">
+    {{vehicle.id}}
+    {{vehicle.licensePlate}}
+    {{vehicle.numberOfNomads}}
+    <div *ngFor="let nomad of vehicle.nomads">
+      {{nomad.firstname}}
+      {{nomad.lastname}}
+    </div>
+  </div>
+</div>
