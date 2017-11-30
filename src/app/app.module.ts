@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,6 +11,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { NotFoundComponent } from'./not-found/not-found.component';
 import { CitiesComponent } from './cities/cities.component';
 import { CityViewComponent } from './city-view/city-view.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { CityViewComponent } from './city-view/city-view.component';
     NavigationComponent,
     NotFoundComponent,
     CitiesComponent,
-    CityViewComponent
+    CityViewComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +29,12 @@ import { CityViewComponent } from './city-view/city-view.component';
     RouterModule.forRoot([
       {path: "dashboard", component:DashboardComponent},
       {path: "cities", component:CitiesComponent},
+      {path: "map", component:MapComponent},
       {path: "**", component:NotFoundComponent}
-    ])
+    ]),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDZtZzucDFcL0Dr4nUPslssN7Kp0PjhBzo'
+    })
   ],
   providers: [
     ApiService

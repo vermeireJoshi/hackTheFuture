@@ -4,33 +4,15 @@
 <div class="row">
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let city of savedCities">
       <div class="card" >
-          {{city.name}}
+          <h4>{{city.name}}</h4>
+          <p> {{city.country}}</p>
+         <p>{{city.area}}</p>
+          <p>{{city.population}}</p>
+          
       </div>
        
       </div>
 </div>
 
 
-<div *ngFor="let city of cities">
-  {{city.id}} 
-  {{city.name}} 
-  {{city.population}}
-  {{city.area}}
-  {{city.country}}
-</div>
-
-<div *ngFor="let convoy of convoys">
-  {{convoy.desinationCity}}
-  {{convoy.distanceFromCityBorder}}
-  {{convoy.speedInKmPerHour}}
-  <div *ngFor="let vehicle of convoy.vehicles">
-    {{vehicle.id}}
-    {{vehicle.licensePlate}}
-    {{vehicle.numberOfNomads}}
-    <div *ngFor="let nomad of vehicle.nomads">
-      {{nomad.firstname}}
-      {{nomad.lastname}}
-    </div>
-  </div>
-</div>
 </div>
