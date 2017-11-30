@@ -5,11 +5,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CitiesService } from './services/cities.service';
+import { ConvoysService } from './services/convoys.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,7 +18,7 @@ import { CitiesService } from './services/cities.service';
   ],
   providers: [
     CitiesService,
-
+    ConvoysService,
   ],
   bootstrap: [AppComponent]
 })
