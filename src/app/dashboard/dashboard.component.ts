@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CitiesService } from '../services/cities.service';
-import { ConvoysService } from '../services/convoys.service';
+import { ApiService } from '../services/api.service';
+import { City } from '../models/City';
+import { Observable } from 'rxjs/Observable';
+import { Convoy } from '../models/Convoy';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,15 +11,18 @@ import { ConvoysService } from '../services/convoys.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private cityService: CitiesService, private convoyService: ConvoysService) { }
+  private cities: City[];
+  private convoys: Convoy[];
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.cityService.cities.subscribe( item =>
-      console.log(item)
+    this.apiService.cities.subscribe(item =>
+      this.cities = item
     );
 
-    this.convoyService.convoys.subscribe( item =>
-      console.log(item)
+    this.apiService.convoys.subscribe(item =>
+      this.convoys = item
     );
   }
 }

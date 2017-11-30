@@ -4,8 +4,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CitiesService } from './services/cities.service';
-import { ConvoysService } from './services/convoys.service';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { ConvoysService } from './services/convoys.service';
     HttpModule,
   ],
   providers: [
-    CitiesService,
-    ConvoysService,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })
