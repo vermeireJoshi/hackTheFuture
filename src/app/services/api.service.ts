@@ -23,7 +23,7 @@ export class ApiService {
     }
     
     get convoys(): Observable<Convoy[]> {
-      return this.http.get(this._url).map(response =>
+      return this.http.get(this._url + "/convoys").map(response =>
          response.json().map(item => new Convoy(item.id, item.destinationCity, item.distanceFromCityBorder, item.speedInKmPerHour,
             item.vehicles.map(veh => new Vehicle(veh.id, veh.licensePlate, veh.numberOfNomads, 
               veh.nomads.map(nom => new Nomad(nom.firstName, nom.lastName))

@@ -1,9 +1,12 @@
+import { Convoy } from './Convoy';
+
 export class City {
     id: string;
     name: string;
     population: string;
     area: number;
     country: string;
+    convoys: Convoy[];
 
     constructor(id: string, name: string, population: string, area: number, country: string) {
         this.id = id;
